@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARK ESSENCE - Gold Reserve</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1.5rem 3rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #D4AF37;
+            letter-spacing: 4px;
+        }
+
+        .logo small {
+            display: block;
+            font-size: 0.5rem;
+            letter-spacing: 6px;
+            color: #ccc;
+            margin-top: -5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #D4AF37;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 7rem;
+            font-weight: 700;
+            color: #D4AF37;
+            letter-spacing: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            letter-spacing: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            margin: 0 0.5rem;
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #D4AF37;
+            color: #0a0a0a;
+        }
+
+        .btn:hover {
+            background: #D4AF37;
+            color: #0a0a0a;
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 6rem 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: #D4AF37;
+            letter-spacing: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ccc;
+            letter-spacing: 3px;
+            margin-bottom: 4rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: #D4AF37;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-info p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .features {
+            background: #1a1a1a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #D4AF37;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: #888;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #D4AF37;
+            transform: translateY(-3px);
+        }
+
+        .social-icon img {
+            width: 22px;
+            height: 22px;
+            filter: brightness(0) saturate(100%) invert(68%) sepia(66%) saturate(467%) hue-rotate(4deg) brightness(95%) contrast(87%);
+        }
+
+        .social-icon:hover img {
+            filter: brightness(0);
+        }
+
+        .footer-title {
+            font-family: 'Cinzel', serif;
+            color: #D4AF37;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #D4AF37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: #666;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+            nav ul { flex-direction: column; gap: 1rem; }
+            .nav-container { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                HARK
+                <small>ESSENCE</small>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div>
+            <h1>HARK</h1>
+            <h2>ESSENCE</h2>
+            <p>GOLD RESERVE - TIMELESS LUXURY FRAGRANCE</p>
+            <a href="#collection" class="btn btn-primary">Explore Collection</a>
+            <a href="https://wa.me/923129455900" class="btn">📱 WhatsApp</a>
+        </div>
+    </section>
+
+    <section class="section" id="collection">
+        <h2 class="section-title">GOLD RESERVE</h2>
+        <p class="section-subtitle">THE SIGNATURE COLLECTION</p>
+
+        <div class="gallery">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="perfume1.png" alt="Hark Essence Gold Reserve">
+                </div>
+                <div class="product-info">
+                    <h3>LUXURY EDITION</h3>
+                    <p>An exquisite blend of sophistication and luxury, crafted for those who appreciate the finer things.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="perfume2.png" alt="Hark Essence Gold Reserve">
+                </div>
+                <div class="product-info">
+                    <h3>PREMIUM COLLECTION</h3>
+                    <p>Where golden elegance meets crystal clarity. A fragrance that speaks volumes without words.</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="perfume3.png" alt="Hark Essence Gold Reserve">
+                </div>
+                <div class="product-info">
+                    <h3>SIGNATURE SERIES</h3>
+                    <p>The essence of luxury captured in a bottle, designed to leave a lasting impression.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features">
+        <h2 class="section-title">WHY CHOOSE US</h2>
+        <p class="section-subtitle">EXCELLENCE IN EVERY DETAIL</p>
+
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">💎</div>
+                <h3>Premium Quality</h3>
+                <p>Crafted with the finest ingredients and unparalleled attention to detail.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">👑</div>
+                <h3>Luxury Design</h3>
+                <p>Elegant crystal bottles with gold accents that reflect timeless sophistication.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <h3>Unique Scent</h3>
+                <p>A signature fragrance that embodies elegance, power, and refined taste.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <div class="footer-brand">HARK ESSENCE</div>
+                <p class="footer-tagline">Gold Reserve Collection</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1D4ghRAuyK/" target="_blank" class="social-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/harkessence" target="_blank" class="social-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@hariskhan1.3" target="_blank" class="social-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
+                    </a>
+                    <a href="https://wa.me/923129455900" target="_blank" class="social-icon">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer-title">Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="https://wa.me/923129455900">+92 312 9455900</a></li>
+                    <li><a href="mailto:info@harkessence.com">info@harkessence.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 HARK ESSENCE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
